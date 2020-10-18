@@ -9,7 +9,9 @@ This project involves creating the well-known, classic hangman game where a user
 The program will randomly select the word that the user has to guess (secret word) from an established list. Unknown to the user, all of the words are decoded, including the one that the program will randomly pick.
 
 Once the secret word is chosen, the program will display dashes to represent how long the secret word is.
-The user then will be prompted to enter a letter. If their guess is correct, the dash corresponding to the correct letter will be replaced by the user's guess. 
+The user then will be prompted to enter a letter. If their guess is correct, the dash corresponding to the correct letter will be replaced by the user's guess.
+
+After every guess, regardless of whether it was correct or incorrect, the user's guess will be stored and displayed to show what letters have already been guessed so far. If the user guesses the same letter twice, the program will prompt the user to enter a different letter.
 
 The user has 10 guesses to try to win the game. They will win if they correctly spell out the decoded secret word which then will be decoded and displayed after the user wins. The user will lose if they use all 10 guesses without guessing the entire decoded word. Additionally, the word will not be decoded if the user loses.
 
