@@ -1,15 +1,13 @@
-import random
-
 # function definitions:
 def decrypt(cipher_text):
     plain_text = ""
     i = 0
-    for char in range(len(cipher_text)):
+    for val in range(len(cipher_text)):
         if i < len(cipher_text):
             if i % 2 == 0:
-                cipher_ascii = ord(ciphert_ext[i])
+                cipher_ascii = ord(cipher_text[i])
                 plain_ascii = cipher_ascii - 1
-                plaintext += chr(plain_ascii)
+                plain_text += chr(plain_ascii)
                 i += 1
             else:
                 cipher_ascii = ord(cipher_text[i])
@@ -23,13 +21,14 @@ def decrypt(cipher_text):
 
 # main code below: 
 # choosing a random word from the list. this is the word that the user will have to guess
-words = ['WHDSPQZ', 'XHO', 'TTDBFRT', 'QQJYF', 'ENQD', 'DNPK', 'CNTR', 'EHWHOD', 'TSVMOHOF', 'XNOCFQGTM']
+import random
+words = ["WHDSPQZ", "XHO", "TTDBFRT", "QQJYF", "ENQD", "DNPK", "CNTR", "EHWHOD", "TSVMOHOF", "XNOCFQGTM"]
 secret_word = random.choice(words)
 
 # game beginning/introduction
 print("Welcome to Hangman!")
 print()
-print("The word is", len(secret_Word), "letters long.")
+print("The word is", len(secret_word), "letters long.")
  
 guesses = ""
 # stores all of user's guesses, regardless if the guess was correct or incorrect
@@ -50,7 +49,7 @@ while turns > 0:
             incorrect += 1
     if incorrect == 0:
         # decrypt secret word (decrypt function) before revealing
-        ciphertext = secret_word
+        cipher_text = secret_word
         decrypt(cipher_text)
         break
     # expect user to enter only letters and nothing else
@@ -58,16 +57,16 @@ while turns > 0:
     user_guess = input("\nGuess a letter: ").upper()
     # "letter matching" - compare user's guess to what is already in guesses
     guesses += user_guess
-    if guess not in secret_word:
+    if user_guess not in secret_word:
         # if user's guess is wrong, decrease number of turns & append user's guess into guessedLetters
         turns = turns - 1
         # check to make sure that the user didn't guess the same letter twice
         if user_guess in guessedLetters:
             user_guess = input("You already guessed that letter. Guess a different letter: ").upper()
-            guessedLetters.append(guess) 
+            guessedLetters.append(user_guess) 
             print("Guessed Letters: ", guessedLetters)
         else: 
-            guessedLetters.append(guess) 
+            guessedLetters.append(user_guess) 
             print("Guessed Letters: ", guessedLetters)
         # display amount of turns left
         print("\nIncorrect. You have", turns, "more guesses.")
